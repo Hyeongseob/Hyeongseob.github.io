@@ -27,21 +27,20 @@
                                     <div class="carousel-item active">
                                         <div class="row d-flex justify-content-center">
                                             <div class="col-md-8 col-lg-9 col-xl-8">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1 ms-4 ps-3">
-                                                        <figure>
-                                                            <div class="scene scene--quiz_card" style="width: 100%">
-                                                                <div class="quiz_card">
-                                                                    <div class="quiz_card__face quiz_card__face--front">
-                                                                        HS CODE
-                                                                    </div>
-                                                                    <div class="quiz_card__face quiz_card__face--back">
-                                                                        Description
-                                                                    </div>
+                                                <div class="flex-grow-1 ms-4 ps-3">
+                                                    <figure>
+                                                        <div class="scene scene--quiz_card" style="width: 100%">
+                                                            <div class="quiz_card">
+                                                                <div class="quiz_card__face quiz_card__face--front">
+                                                                    HS CODE
+                                                                </div>
+                                                                <div class="quiz_card__face quiz_card__face--back"
+                                                                     style="white-space: normal">
+                                                                    Description
                                                                 </div>
                                                             </div>
-                                                        </figure>
-                                                    </div>
+                                                        </div>
+                                                    </figure>
                                                 </div>
                                             </div>
                                         </div>
@@ -1308,17 +1307,22 @@
     var result = [];
 
     for (var i = 0; i < lines.length; i++) {
-
         var obj = [];
-        var currentline = lines[i].split(",");
 
-        for (var j = 0; j < 3; j++) {
-            obj.push(currentline[j]);
+        line = lines[i]
+        obj.push(line.substring(0, 4))
+        line = line.substring(5,)
+        comma_index = line.indexOf(',');
+        obj.push(line.substring(0, comma_index).trim())
+        description = line.substring(comma_index + 1,)
+        if (description.startsWith('"')) {
+            description = description.substring(1, description.length - 1)
         }
-
+        description = description.trim()
+        obj.push(description)
         result.push(obj);
-
     }
+
     var carousel_inner = document.getElementById('inner_items');
     console.log(carousel_inner)
     for (var i = 0; i < result.length; i++) {
@@ -1334,7 +1338,8 @@
         back.classList.add('quiz_card__face--back');
         var description = document.createElement('span');
         description.appendChild(document.createTextNode(result.at(i)[2]))
-        description.style.fontSize = '10px'
+        description.overflow = false
+        description.style.fontSize = '23px'
         back.appendChild(description);
 
         var card = document.createElement('div')
@@ -1358,15 +1363,11 @@
         box.classList.add('ps-3')
         box.appendChild(figure)
 
-        var box_1 = document.createElement('div')
-        box_1.classList.add('d-flex')
-        box_1.appendChild(box)
-
         var box_2 = document.createElement('div')
         box_2.classList.add('col-md-8')
         box_2.classList.add('col-lg-9')
         box_2.classList.add('col-xl-8')
-        box_2.appendChild(box_1)
+        box_2.appendChild(figure)
 
         var box_3 = document.createElement('div')
         box_3.classList.add('row')
