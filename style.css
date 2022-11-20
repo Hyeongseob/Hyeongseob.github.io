@@ -42,19 +42,21 @@ body {
     height: 100%;
     padding: 10px;
     color: white;
-    text-align: center;
-    font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
 }
 
 .quiz_card__face--front {
+    font-weight: bold;
+    text-align: center;
     line-height: 260px;
     background: crimson;
 }
 
 .quiz_card__face--back {
-    line-height: normal;
+    font-weight: normal;
+    text-align: left;
+    line-height: 50%;
     background: slateblue;
     transform: rotateX(180deg);
 }
