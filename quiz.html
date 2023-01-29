@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HSCODE-QUIZ</title>
+    <title>HSCODE-CODE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
-    <button onclick="location.href='index.html'">Home</button>
+    <div>
+        <button onclick="location.href='index.html'">Back to home</button>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <div style="text-align: center">
+                <span class="quiz_code" style="font-size: xx-large"><strong>0000</strong></span><br><br>
+            </div>
+            <div>
+                <details>
+                    <summary>표제</summary>
+                    <span class="quiz_title" style="font-size: medium">unknown</span>
+                </details>
+                <br>
+            </div>
+            <div>
+                <details>
+                    <summary>품명</summary>
+                    <span class="quiz_description">unknown</span>
+                </details>
+                <br>
+            </div>
+            <button class="button" id="prev_button" type="button">Prev</button>
+            <button class="button" id="next_button" type="button">Next</button>
+            <script type="text/javascript" src="script.js"></script>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -8,10 +8,12 @@
 <body>
 <div class="wrapper">
     <div class="content">
-        <label for="front_index">범위 : </label>
-        01류 ~
-        <input type="number" id="front_index" name="front_index" min="01" max="97">류
-        <button class="button" onclick="location.href='quiz.html'">Start Quiz</button>
+        <form method="get" action="quiz.html">
+            <label for="end_index">범위 : </label>
+            <input class="input_index" type="number" id="start_index" name="start_index" min="01" max="97" required>류~
+            <input class="input_index" type="number" id="end_index" name="end_index" min="01" max="97" required>류
+            <input class="button" type="submit" value="Start Quiz">
+        </form>
     </div>
 </div>
 </body>
