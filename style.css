@@ -10,7 +10,7 @@
     padding: 2rem;
     border-radius: 1rem;
     background: ghostwhite;
-    font-size: 1.2rem;
+    font-size: 4rem;
 }
 
 .quiz_wrapper {
@@ -23,13 +23,13 @@
     padding: 2rem;
     border-radius: 1rem;
     background: ghostwhite;
-    font-size: 1.2rem;
+    font-size: 4rem;
 }
 
 .input_index {
-    font-size: 1.2rem;
+    font-size: 4rem;
 }
 
 .button {
-    font-size: 1.2rem;
+    font-size: 3.5rem;
 }
