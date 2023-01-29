@@ -1277,6 +1277,8 @@ for (let i = 0; i < hscode_csv_lines.length; i++) {
 hscode_list.sort(() => Math.random() - 0.5)
 let count = 0
 
+console.log(hscode_list)
+
 // Construct Views
 let quiz_code = document.getElementsByClassName("quiz_code")[0]
 let quiz_title = document.getElementsByClassName("quiz_title")[0]
@@ -1285,3 +1287,31 @@ quiz_code.innerText = hscode_list[count][0]
 quiz_title.innerText = hscode_list[count][1]
 quiz_description.innerText = hscode_list[count][2]
 
+let prev_button = document.getElementById("prev_button");
+let next_button = document.getElementById("next_button");
+let details = document.querySelectorAll("details");
+
+prev_button.addEventListener("click", () => {
+    if (count < 1) {
+        return
+    }
+    count--
+    quiz_code.innerText = hscode_list[count][0]
+    quiz_title.innerText = hscode_list[count][1]
+    quiz_description.innerText = hscode_list[count][2]
+    details.forEach((detail) => {
+        detail.removeAttribute("open");
+    });
+})
+next_button.addEventListener("click", () => {
+    if (hscode_list.length - 2 < count) {
+        return
+    }
+    count++
+    quiz_code.innerText = hscode_list[count][0]
+    quiz_title.innerText = hscode_list[count][1]
+    quiz_description.innerText = hscode_list[count][2]
+    details.forEach((detail) => {
+        detail.removeAttribute("open");
+    });
+})
