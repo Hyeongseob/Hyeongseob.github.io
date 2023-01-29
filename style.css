@@ -13,6 +13,19 @@
     font-size: large;
 }
 
+.quiz_wrapper {
+    display: flex;
+}
+
+.quiz_content {
+    width: 100%;
+    font-family: system-ui, serif;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: ghostwhite;
+    font-size: large;
+}
+
 .input_index {
     font-size: large;
 }

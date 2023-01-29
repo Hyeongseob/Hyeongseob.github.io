@@ -1279,5 +1279,9 @@ let count = 0
 
 // Construct Views
 let quiz_code = document.getElementsByClassName("quiz_code")[0]
-quiz_code.innerHTML = hscode_list[count][0]
+let quiz_title = document.getElementsByClassName("quiz_title")[0]
+let quiz_description = document.getElementsByClassName("quiz_description")[0]
+quiz_code.innerText = hscode_list[count][0]
+quiz_title.innerText = hscode_list[count][1]
+quiz_description.innerText = hscode_list[count][2]
 

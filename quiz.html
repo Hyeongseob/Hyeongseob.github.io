@@ -6,31 +6,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
-    <div>
-        <button onclick="location.href='index.html'">Back to home</button>
-    </div>
-    <div class="wrapper">
-        <div class="content">
-            <div style="text-align: center">
-                <span class="quiz_code" style="font-size: xx-large"><strong>0000</strong></span><br><br>
-            </div>
-            <div>
-                <details>
-                    <summary>표제</summary>
-                    <span class="quiz_title" style="font-size: medium">unknown</span>
-                </details>
-                <br>
-            </div>
+<div class="quiz_wrapper">
+    <div class="quiz_content">
+        <div style="text-align: center;padding: 1rem">
+            <button class="button" id="prev_button" type="button">Prev</button>
+            <button class="button" id="next_button" type="button">Next</button>
+        </div>
+        <div style="text-align: center;padding: 1rem">
+            <span class="quiz_code" style="font-size: xx-large"><strong>0000</strong></span>
+        </div>
+        <div style="padding: 1rem">
+            <details>
+                <summary>표제</summary>
+                <span class="quiz_title" style="font-size: medium; padding: 1rem">unknown</span>
+            </details>
+        </div>
+        <div style="padding: 1rem">
             <div>
                 <details>
                     <summary>품명</summary>
-                    <span class="quiz_description">unknown</span>
+                    <span class="quiz_description" style="font-size: medium; padding: 1rem">unknown</span>
                 </details>
-                <br>
             </div>
-            <button class="button" id="prev_button" type="button">Prev</button>
-            <button class="button" id="next_button" type="button">Next</button>
             <script type="text/javascript" src="script.js"></script>
         </div>
     </div>
