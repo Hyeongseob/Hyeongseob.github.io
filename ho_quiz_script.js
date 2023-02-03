@@ -1,17 +1,31 @@
-let start_index = location.href.split('?')[1].split('&')[0].split('=')[1];
-let end_index = location.href.split('?')[1].split('&')[1].split('=')[1];
+let numbers = [];
 
-if (start_index > end_index) {
-    let tmp = start_index;
-    start_index = end_index;
-    end_index = tmp;
-}
+let range = location.href.split('?')[1].split('=')[1];
+range = range.replaceAll('+', '')
+range = range.replaceAll('%2C', ',')
+range = range.replaceAll('%7E', '~')
+range = range.split(',').forEach(element => {
+    if (element.includes('-') || element.includes('~')) {
+        const part = element.split(new RegExp('-|~'))
+        const start = parseInt(part[0])
+        const end = parseInt(part[1])
 
-start_index = Number(start_index)
-end_index = Number(end_index)
+        for (let i = start; i <= end; i++) {
+            if (0 < i && i < 98) {
+                numbers.push(i)
+            }
+        }
+    } else {
+        if (0 < parseInt(element) && parseInt(element) < 98) {
+            numbers.push(parseInt(element))
+        }
+    }
+})
 
-start_index = start_index * 100
-end_index = (end_index + 1) * 100
+numbers.sort(function (a, b) {
+    return a - b;
+})
+
 
 const hscode_csv =
     "0101,말,살아 있는 말·당나귀·노새·버새 \n" +
@@ -1246,18 +1260,16 @@ const hscode_csv =
 const hscode_csv_lines = hscode_csv.split("\n");
 const hscode_list = [];
 
+
 // CSV to List
 for (let i = 0; i < hscode_csv_lines.length; i++) {
     let tmp_obj = [];
     let csv_line = hscode_csv_lines[i]
     let code = csv_line.substring(0, 4)
 
-    if (code < start_index) {
+    let rue = parseInt(code / 100)
+    if (!numbers.includes(rue)) {
         continue
-    }
-
-    if (end_index < code) {
-        break
     }
 
     tmp_obj.push(code)
@@ -1276,8 +1288,6 @@ for (let i = 0; i < hscode_csv_lines.length; i++) {
 // Sorting
 hscode_list.sort(() => Math.random() - 0.5)
 let count = 0
-
-console.log(hscode_list)
 
 // Construct Views
 let quiz_code = document.getElementsByClassName("quiz_code")[0]
